@@ -28,7 +28,7 @@ export default function Map() {
             </div>
 
             <div className="map-section__content">
-                <p className="map-section__instruction">Select the place you want to visit</p>
+                
                 <div className="map-visual" aria-label="Map showing six IYF community centers">
                     <div className="map-visual__wash" />
                     <div className="map-route map-route--north" />
