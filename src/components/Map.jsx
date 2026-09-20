@@ -21,7 +21,7 @@ export default function Map() {
         <section className="map-section" aria-labelledby="map-heading">
             <div className="map-section__intro">
                 <p className="map-section__eyebrow">Six places, one shared spirit</p>
-                <h2 id="map-heading">Where IYF comes alive</h2>
+                <h2 id="map-heading">Visit us Here</h2>
                 <p>
                     Find a community to learn with, serve with, and grow alongside.
                 </p>
