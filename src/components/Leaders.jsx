@@ -8,6 +8,16 @@ import somapatiPrabhu from "../assets/leaders/hgSomapatiPrabhuji.png";
 import subekshnaPrabhu from "../assets/leaders/hgSubekshanaPrabhu.png";
 import tirthangaNitaiPrabhu from "../assets/leaders/hgTirthangaNitaiPrabhu.png";
 
+//singular icons
+import guiding from "../assets/leaders/icon-png/guiding_the_mission.png"
+import wisdom from "../assets/leaders/icon-png/wisdom.png"
+import steering from "../assets/leaders/icon-png/driving_the_mission.png"
+import leading from "../assets/leaders/icon-png/leading_the_mission.png"
+import turning from "../assets/leaders/icon-png/turning_vision_to_action.png"
+import cultivating from "../assets/leaders/icon-png/education.png"
+import connecting from "../assets/leaders/icon-png/connecting_the_mission.png"
+import serving from "../assets/leaders/icon-png/serving.png"
+
 // ============================================================
 // LEADERS DATA
 // ============================================================
@@ -18,6 +28,7 @@ const leaders = {
     role: "Co-Director",
     singular: "Guiding the Mission",
     image: subekshnaPrabhu,
+    singularIcon: guiding,
   },
 
   advisor: {
@@ -25,6 +36,7 @@ const leaders = {
     role: "Chief Advisor",
     singular: "Offering Wisdom & Direction",
     image: tirthangaNitaiPrabhu,
+    singularIcon: wisdom,
   },
 
   chairman: {
@@ -32,6 +44,7 @@ const leaders = {
     role: "Chairman",
     singular: "Steering the Vision",
     image: nitaichandraNimaiPrabhu,
+    singularIcon: steering,
   },
 
   secretary: {
@@ -39,6 +52,7 @@ const leaders = {
     role: "Secretary",
     singular: "Leading the Mission Forward",
     image: achyutNaamPrabhu,
+    singularIcon: leading,
   },
 
   executiveSecretary: {
@@ -46,6 +60,7 @@ const leaders = {
     role: "Executive Secretary",
     singular: "Turning Vision into Action",
     image: istadevaPrabhu,
+    singularIcon: turning,
   },
 
   educationalCoordinator: {
@@ -53,6 +68,7 @@ const leaders = {
     role: "Educational Coordinator",
     singular: "Cultivating Knowledge & Growth",
     image: somapatiPrabhu,
+    singularIcon: cultivating,
   },
 
   centralExecutiveSecretary: {
@@ -60,6 +76,7 @@ const leaders = {
     role: "Central Executive Secretary",
     singular: "Connecting the Mission",
     image: avatar,
+    singularIcon: connecting,
   },
 
   teamMember: {
@@ -67,6 +84,7 @@ const leaders = {
     role: "Team Member",
     singular: "Serving the Mission",
     image: avatar,
+    singularIcon: serving,
   },
 };
 
@@ -85,6 +103,113 @@ const springTransition = {
   damping: 19,
   mass: 0.9,
 };
+
+// ============================================================
+// SINGULAR ICON
+// ============================================================
+
+function SingularIcon({
+  src,
+  alt,
+  variant = "featured",
+}) {
+  if (!src) return null;
+
+  const isFeatured = variant === "featured";
+
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        scale: 0.82,
+        y: 12,
+      }}
+      whileInView={{
+        opacity: 1,
+        scale: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: false,
+        amount: 0.25,
+      }}
+      transition={{
+        duration: 0.65,
+        ease: [0.22, 1, 0.36, 1],
+        delay: 0.12,
+      }}
+      className={`
+        relative
+        flex
+        shrink-0
+        items-center
+        justify-center
+        ${
+          isFeatured
+            ? "h-28 w-28 sm:h-36 sm:w-36 lg:h-44 lg:w-44"
+            : "h-20 w-20 sm:h-24 sm:w-24"
+        }
+      `}
+    >
+      {/* Soft glow */}
+      <div
+        className="
+          absolute
+          inset-0
+          rounded-full
+          bg-amber-300/20
+          blur-2xl
+        "
+      />
+
+      {/* Decorative ring */}
+      <div
+        className="
+          absolute
+          inset-1
+          rounded-full
+          border
+          border-amber-300/50
+          bg-gradient-to-br
+          from-amber-50
+          via-white
+          to-amber-100/70
+          shadow-[0_10px_35px_rgba(180,120,20,0.12)]
+        "
+      />
+
+      {/* Inner ring */}
+      <div
+        className="
+          absolute
+          inset-3
+          rounded-full
+          border
+          border-amber-200/40
+        "
+      />
+
+      <img
+        src={src}
+        alt={alt}
+        className={`
+          relative
+          z-10
+          object-contain
+          ${
+            isFeatured
+              ? "h-20 w-20 sm:h-28 sm:w-28 lg:h-36 lg:w-36"
+              : "h-14 w-14 sm:h-16 sm:w-16"
+          }
+          transition-transform
+          duration-500
+          group-hover:scale-105
+        `}
+      />
+    </motion.div>
+  );
+}
+
 
 // ============================================================
 // SECTION HEADING

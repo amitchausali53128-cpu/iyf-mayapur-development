@@ -13,7 +13,9 @@
     "@tailwindcss/vite": "^4.3.3",
     "framer-motion": "^13.4.0",
     "react": "^19.2.8",
+    "react-clock": "^6.0.0",
     "react-dom": "^19.2.8",
+    "react-time-picker": "^8.1.0",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
